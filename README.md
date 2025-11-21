@@ -44,6 +44,29 @@ We are working on a new version of ArgMatch that removes this dependency and wil
 
 ---
 
+## Pretrained Checkpoint
+
+Download the pretrained ArgMatch checkpoint from:
+
+* [Google Drive link](https://drive.google.com/file/d/1wHprz7nrZTrFxZmupaJH_TSndNdWsPkB/view?usp=sharing)
+
+After downloading, place the checkpoint file `ckpt_clean.pth` in:
+
+```text
+ArgMatch/workspace/checkpoints/
+```
+
+The final path should look like:
+
+```text
+ArgMatch/
+├── workspace/
+│   ├── checkpoints/
+│   │   ├── ckpt_clean.pth
+```
+
+---
+
 ## Data Preparation
 
 Download **MegaDepth** and **ScanNet test** following the instructions from:
@@ -73,25 +96,25 @@ ArgMatch/
 
 ### Demo
 
-We provide a simple demo script `experiments/demo.py` that:
+We provide a simple demo script (e.g., `demo_argmatch.py`) that:
 
 * loads the pretrained ArgMatch checkpoint,
 * takes two input images,
-* computes dense matches,
+* computes dense correspondences,
 * warps image B to image A, and
 * saves visualizations (flow, certainty map, and concatenated images).
 
 Run the demo with:
 
 ```bash
-python -m experiments.demo \
+python demo_argmatch.py \
   --checkpoint workspace/checkpoints/ckpt_clean.pth \
-  --image_A _assets/im_A.jpg \
-  --image_B _assets/im_B.jpg \
-  --output_dir _assets/outputs
+  --image_A assets/im_A.jpg \
+  --image_B assets/im_B.jpg \
+  --output_dir assets/outputs
 ```
 
-After running, you should find the following files in `_assets/outputs/`:
+After running, you should find the following files in `assets/outputs/`:
 
 * `flow.png` – visualization of the dense flow field
 * `certainty.png` – certainty / confidence map
@@ -99,13 +122,19 @@ After running, you should find the following files in `_assets/outputs/`:
 
 ### Evaluation
 
+Before running the evaluation scripts, please create a directory for storing the results:
+
+```bash
+mkdir -p results
+```
+
 To reproduce the **relative camera pose estimation** results on **MegaDepth-1500**:
 
 ```bash
 python -m experiments.test \
   --gpu 0 \
   --tests test_mega1500 \
-  --sample_thresh 0.05
+  --sample_thresh 0.03
 ```
 
 To reproduce the **relative camera pose estimation** results on **ScanNet**:
@@ -124,6 +153,8 @@ python -m experiments.test \
   --gpu 2 \
   --tests test_megdepth_dense_scale
 ```
+
+The corresponding logs and metrics will be saved under the `results/` directory.
 
 ---
 
