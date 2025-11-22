@@ -181,12 +181,7 @@ If you find this repository useful in your research, please consider citing:
 
 ## Acknowledgements
 
-This implementation is heavily inspired by and builds upon the excellent work of:
-
-* [DKM: Dense Kernel Matching](https://github.com/Parskatt/DKM)
-* [ROMA: Robust Matching](https://github.com/Parskatt/roma)
-
-We sincerely thank the authors and maintainers of these projects for open-sourcing their code and ideas.
+This implementation is heavily inspired by and builds upon the excellent work of [DKM](https://github.com/Parskatt/DKM) and [ROMA](https://github.com/Parskatt/roma). We sincerely thank the authors and maintainers of these projects for open-sourcing their code and ideas.
 
 ---
 
