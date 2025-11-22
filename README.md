@@ -12,7 +12,7 @@ by *Yuxin Deng, Kaining Zhang, Linfeng Tang, Jiaqi Yang, and Jiayi Ma*.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your_username/ArgMatch.git
+git clone https://github.com/ACuOoOoO/ArgMatch.git
 cd ArgMatch
 ```
 
