@@ -38,7 +38,7 @@ After activating the environment, install the NATTEN library:
 pip3 install natten==0.17.1+torch230cu121 -f https://shi-labs.com/natten/wheels
 ```
 
-**Warning:** ArgMatch relies on NATTEN’s *unfused attention* API (the deprecated interface for computing query–key similarities). Recent versions of `natten` have removed this API, so you **must** use the compatible combination
+**Warning:** ArgMatch relies on [NATTEN](https://github.com/SHI-Labs/NATTEN)’s *unfused neighborhood attention* API (the deprecated interface for computing query–key similarities). Recent versions of `natten` have removed this API, so you **must** use the compatible combination
 `torch==2.3.0` and `natten==0.17.1+torch230cu121`.
 We are working on a new version of ArgMatch that removes this dependency and will keep the codebase updated with future NATTEN releases.
 
