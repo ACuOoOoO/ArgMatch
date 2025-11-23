@@ -96,7 +96,7 @@ ArgMatch/
 
 ### Demo
 
-We provide a simple demo script (e.g., `demo_argmatch.py`) that:
+We provide a simple demo script `experiments/demo.py` that:
 
 * loads the pretrained ArgMatch checkpoint,
 * takes two input images,
@@ -107,7 +107,7 @@ We provide a simple demo script (e.g., `demo_argmatch.py`) that:
 Run the demo with:
 
 ```bash
-python demo_argmatch.py \
+python -m experiments.demo \
   --checkpoint workspace/checkpoints/ckpt_clean.pth \
   --image_A assets/im_A.jpg \
   --image_B assets/im_B.jpg \
